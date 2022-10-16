@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+table{
+    width: 1200px;
+}
+#b{
+    font-weight: bold;
+}
+button{
+    border: none;
+    background-color: white;
+}
+hr{
+    height: 20px;
+    background-color: dimgrey;
+    opacity: 0.3;
+}
+#h:after{
+    content: '*';
+    color: red;
+}
+.hi{
+    column-width:250px ;
+    border: none;
+}
+.hii{
+    border: none;
+    background-color: gray;
+    width: 500px;
+}
+#n:after{
+    content: '*';
+    color: red;
+}
+</style>
+</head>
+<body>
+<p style="margin: 0px;display: inline" id="h">Hub</p>
+<p style="margin: 0px;display: inline;padding-left: 600px" >GRN</p><br/>
+
+    <p style="background-color: gray;width: 500px;display: inline-block;height: 20px">BCCBP001</p>
+
+        <input type="text" placeholder="" style="background-color: gray;width: 500px;display: inline;margin-left: 100px">
+<p id="n">supplier</p>
+<p style="background-color: gray;width: 500px">37367</p>
+<p >Suplier Name</p>
+<p style="background-color: gray;width: 500px">Sunil N bitter</p>
+<hr>
+<div>
+<table>
+    <tr>
+        {% for head1 in heading1 %}
+            <th>{{ head1 }}</th>
+        {% endfor %}
+    </tr>
+<tr>
+{% for row1 in data1 %}
+
+    <td>{{ row1 }}</td>
+
+
+{% endfor %}</tr>
+</table>
+</div>
+<hr>
+<p id="b">Crate List<button onclick="toggle(this);" id="button">^</button></p>
+
+<div id="mytable">
+
+<table>
+    <tr>
+        {% for head in heading %}
+            <th>{{ head }}</th>
+        {% endfor %}
+    </tr>
+{% for row in data %}
+<tr>
+    {% for r in row %}
+    <td>{{ r }}</td>
+    {% endfor %}
+</tr>
+{% endfor %}
+</table></div>
+
+<script>
+  let toggle = button => {
+    let element = document.getElementById("mytable");
+    let hidden = element.getAttribute("hidden");
+
+    if (hidden) {
+       element.removeAttribute("hidden");
+       button.innerText = "^";
+    } else {
+       element.setAttribute("hidden", "hidden");
+       button.innerText = ">";
+    }
+  }
+</script>
+</body>
+</html>
